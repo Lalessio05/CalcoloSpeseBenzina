@@ -1,0 +1,32 @@
+﻿@page "/counter"
+@rendermode InteractiveServer
+
+<div class="vehicle-container">
+    @foreach (var vehicle in Vehicles)
+    {
+        <VehicleBox Vehicle="vehicle" OnClick="@((a)=> ChosenVehicle = a)"/>
+    }
+    <h1>
+        @(ChosenVehicle?.Name ?? "Nessun veicolo selezionato")
+    </h1>
+</div>
+
+<style>
+    .vehicle-container {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 16px; /* Spazio tra le card */
+    }
+</style>
+
+@code {
+
+    public List<Vehicle> Vehicles =
+    [
+        new Vehicle("C3", 6),
+        new Vehicle("Panda", 5),
+        new Vehicle("Golf", 7)
+    ];
+    public Vehicle ChosenVehicle { get; set; } = null!;
+}
+
