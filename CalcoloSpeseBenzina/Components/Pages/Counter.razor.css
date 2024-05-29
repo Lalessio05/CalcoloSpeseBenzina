@@ -1,0 +1,35 @@
+﻿.vehicle-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px; /* Spazio tra le card */
+}
+
+.confirmation {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: #f1f1f1;
+    text-align: center;
+    padding: 10px;
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.confirm-button {
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+    .confirm-button:hover {
+        background-color: #0056b3;
+    }

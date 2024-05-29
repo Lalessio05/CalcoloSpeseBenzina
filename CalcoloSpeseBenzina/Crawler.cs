@@ -10,12 +10,12 @@ internal static class Crawler
     public static (double benzina,double gasolio) CheckPrices()
     {
         const string xpathLombardia = @".//td[text()='Lombardia']/..";
-        WebDriver crawler = new ChromeDriver();
+        using WebDriver crawler = new ChromeDriver();
         WebDriverWait wait = new(crawler, TimeSpan.FromSeconds(10));
         crawler.Navigate().GoToUrl("https://icadsistemi.com/prezzo-medio-regionale-carburanti");
         var lombardiaRow = crawler.FindElement(By.XPath(xpathLombardia));
         wait.Until(ExpectedConditions.ElementIsVisible(By.XPath(xpathLombardia)));
-        return GetPrices(lombardiaRow);
+        return GetPrices(lombardiaRow); 
     }
     private static (double, double) GetPrices(IWebElement row)
     {
