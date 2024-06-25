@@ -39,7 +39,7 @@ namespace CalcoloSpeseBenzina
         private static void CheckPrice()
         {
 
-            if ((JsonConvert.DeserializeObject<PrezziBenzinaJsonFormat>(File.ReadAllText("prices.json"))!.Data - DateTime.Now).TotalDays < 1)
+            if ((DateTime.Now - JsonConvert.DeserializeObject<PrezziBenzinaJsonFormat>(File.ReadAllText("prices.json"))!.Data ).TotalDays < 1)
                 return;
 
 

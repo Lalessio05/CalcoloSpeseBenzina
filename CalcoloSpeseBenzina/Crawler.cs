@@ -7,7 +7,7 @@ namespace CalcoloSpeseBenzina;
 
 internal static class Crawler
 {
-    public static (double benzina,double gasolio) CheckPrices()
+    public static (double benzina, double gasolio) CheckPrices()
     {
         const string xpathLombardia = @".//td[text()='Lombardia']/..";
         WebDriver crawler = new ChromeDriver();
@@ -19,9 +19,9 @@ internal static class Crawler
     }
     private static (double, double) GetPrices(IWebElement row)
     {
-        var cells = row.FindElements(By.TagName("td"));
-        double benzina = double.Parse(cells[2].Text);
-        double diesel = double.Parse(cells[1].Text);
+        var cells = row.FindElements(By.TagName("td")).Select(x => x.Text.Replace('.', ',')).ToList();
+        double benzina = double.Parse(cells[2]);
+        double diesel = double.Parse(cells[1]);
         return (benzina, diesel);
     }
 }

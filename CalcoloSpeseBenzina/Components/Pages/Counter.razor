@@ -1,23 +1,15 @@
-﻿@page "/counter"
+﻿@page "/vehicleChoose"
 @rendermode InteractiveServer
 
 <div class="vehicle-container">
     @foreach (var vehicle in Vehicles)
     {
-        <VehicleBox Vehicle="vehicle" OnClick="@((a)=> ChosenVehicle = a)"/>
+        <VehicleBox Vehicle="vehicle" OnClick="@((a)=> ChosenVehicle = a)" Selected="@(vehicle.Equals(ChosenVehicle))" />
     }
     <h1>
         @(ChosenVehicle?.Name ?? "Nessun veicolo selezionato")
     </h1>
 </div>
-
-<style>
-    .vehicle-container {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 16px; /* Spazio tra le card */
-    }
-</style>
 
 @code {
 

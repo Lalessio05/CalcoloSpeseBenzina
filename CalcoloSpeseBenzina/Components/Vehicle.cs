@@ -6,7 +6,10 @@
         public double Consumption { get; set; } = consumption; //Consumo in litri per km
         public string Image { get; set; } = image;
 
-
-
+        public override bool Equals(object? obj)
+        {
+            var vehicle = (Vehicle)obj!;
+            return vehicle?.Name == Name;
+        }
     }
 }
