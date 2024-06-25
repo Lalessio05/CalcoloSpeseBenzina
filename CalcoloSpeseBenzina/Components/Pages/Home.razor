@@ -9,7 +9,7 @@
     </div>
 }
     <button @onclick="@(() => Percorsi.Add(new Percorso()))" class="add-button">+</button>
-
+    <button @onclick="@(()=>Crawler.StartCrawling(Percorsi))">Start</button>
 </div>
 
 <style>
@@ -42,11 +42,9 @@
 </style>
 @code
 {
-    List<Percorso> Percorsi { get; set; }= [new Percorso(string.Empty,string.Empty)];
+    List<Percorso> Percorsi { get; set; } = [new Percorso(string.Empty, string.Empty)];
 
-Welcome to your new app.
-
-@code
-{
+    
+    
 
 }
